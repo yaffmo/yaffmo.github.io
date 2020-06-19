@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no" />
+
+
+  <title>台北富邦銀行</title>
+  <!-- facebook share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Website" />
+  <meta property="og:description" content="Website description" />
+  <meta property="og:image" content="images/fb.png" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="js_lib/slick.css">
+  <link rel="stylesheet" type="text/css" href="js_lib/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="js_lib/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" type="text/css" href="js_lib/fixed-positioning.css">
+  <link rel="stylesheet" type="text/css" href="css/css_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/prodstore.css">
+  <link rel="stylesheet" type="text/css" href="css/m_css_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/prodstore_m.css">
+  <link rel="stylesheet" type="text/css" href="css/balloon.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script type="text/javascript" src="js_lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js_lib/jquery-migrate-3.0.0.min.js"></script>
+  <script src="js_lib/createjs-2015.11.26.min.js"></script>
+  <script src="Candlelight.js?1591069764835"></script>
+  <script src="ClelightLoop.js?1591687823814"></script>
+  <script src="canvasCtr_fire.js"></script>
+  <script src="canvasCtr_nofire.js"></script>
+  <script src="character.js?1591069810040"></script>
+  <script src="canvasCtr.js"></script>
+
+</head>
+
+<body onload="init_fire(0);">
+  <div class="loading">
+    <div class="box flexBox">Loading<span></span></div>
+  </div>
+  <div class="wrapper">
+    <div class="bg bg_a" data-0="background-position: 0px 0px;" data-1700="background-position: -500px -4000px;"></div>
+    <div class="bg bg_b" data-0="background-position: 0px 0px;" data-1700="background-position: 500px -2000px;"></div>
+    <div class="bg bg_c" data-0="background-position: 0px 0px;" data-1700="background-position: 100px -1000px;"></div>
+    <!-- 不規則方塊 -->
+    <div class="nonCube" data-0="transform: translateY(-0%)" data-700="transform: translateY(-10%)"
+      data-1000="transform: translateY(-40%)" data-1500="transform: translateY(-55%)">
+      <div class="nCube01"><img src="images/svg/blue_bg.svg" alt=""></div>
+      <div class="nCube02"><img src="images/svg/blue_bg.svg" alt=""></div>
+    </div>
+    <!-- 氣球 -->
+    <div class="balloon_container">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+    <!-- 彩帶 -->
+    <div class="ribon_flagbox skr" data-0="transform: translateY(-0%);" data-700="transform: translateY(-10%);"
+      data-1500="transform: translateY(-25%);">
+      <div class="ribon ribon03"><img src="images/svg/ribbon02.svg" alt=""></div>
+      <div class="ribon ribon04"><img src="images/svg/ribbon02.svg" alt=""></div>
+      <div class="ribon ribon01"><img src="images/svg/ribbon.svg" alt=""></div>
+      <div class="ribon ribon02"><img src="images/svg/ribbon.svg" alt=""></div>
+    </div>
+    <header>
+      <div class="container">
+        <div class="flexBox">
+          <h1>
+            台北富邦銀行
+            <img src="images/logo.png" alt="台北富邦銀行">
+          </h1>
+
+          <!-- 選單 -->
+          <nav>
+            <ul class="nav_ul flexBox">
+              <li><a href="javascript:;" class="anchor active" data-posx="0" data-posxm="0" data-posxmp="0">生日許願</a>
+              </li>
+              <li><a href="javascript:;" class="anchor" data-posx="700" data-posxm="0.205" data-posxmp="600">理財好禮</a>
+              </li>
+              <li><a href="javascript:;" class="anchor" data-posx="1500" data-posxm="0.51" data-posxmp="1180">消費好禮</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- 蛋糕 -->
+    <div class="cake_box skr" data-0="transform: translateY(-0%) translateX(-50%);"
+      data-700="transform: translateY(-25%) translateX(-50%);" data-1500="transform: translateY(-65%) translateX(-50%);"
+      data-1700="transform: translateY(-75%) translateX(-50%);">
+      <div class="container">
+        <div class="cake">
+          <!-- 不滅火 -->
+          <div id="fire">
+            <canvas id="fire_canvas" style="position: absolute; display: block;"></canvas>
+            <div id="fire_container" style="pointer-events:none; overflow:hidden; display: block;">
+            </div>
+          </div>
+          <!-- 蛋糕 img -->
+          <img class="pc" src="images/svg/cake.svg" alt="">
+          <img class="mobile" src="images/svg/cake_m.svg" alt="">
+          <div class="relative_item">
+            <!-- 會員理財好禮 title -->
+            <div class="member_gift"><img src="images/svg/title_ discount.svg" alt="會員理財好禮"></div>
+
+            <!-- 動畫 - 女人 -->
+            <div id="anim01"></div>
+            <!-- 動畫 - 男人01 -->
+            <div id="anim02"></div>
+            <!-- 動畫 - 男人02 -->
+            <div id="anim03" data-0="top:45%; left:70%;" data-700="top:45%; left:90.5%;" data-1500="top:55%; left:150%;"
+              data-1550="top:55%; left:1280%;"></div>
+
+            <!-- 會員好禮 slide -->
+            <div class="gift_slideBox pc">
+              <div class="flexBox">
+                <a href="javascript:;" class="gift gift01" data-prod=".foriMoney"><img src="images/svg/d_bu01.svg"
+                    alt="外幣優利定存"></a>
+                <a href="javascript:;" class="gift gift02" data-prod=".seaMoney"><img src="images/svg/d_bu02.svg"
+                    alt="海外債優惠"></a>
+                <a href="javascript:;" class="gift gift03" data-prod=".goodMoney"><img src="images/svg/d_bu03.svg"
+                    alt="基金優惠"></a>
+                <a href="javascript:;" class="gift gift04" data-prod=".buyHouse"><img src="images/svg/d_bu04.svg"
+                    alt="房、信貸優惠"></a>
+                <a href="javascript:;" class="gift gift05" data-prod=".changeMoney"><img src="images/svg/d_bu05.svg"
+                    alt="換匯優惠"></a>
+              </div>
+            </div>
+            <!-- 會員好禮 box -->
+            <div class="gift_slideBox mobile slidebox">
+              <div class="gift_slide gift_slide01">
+                <a href="javascript:;" class="gift gift01" data-prod=".foriMoney"><img src="images/svg/d_bu01.svg"
+                    alt="外幣優利定存"></a>
+              </div>
+              <div class="gift_slide gift_slide02">
+                <a href="javascript:;" class="gift gift02" data-prod=".seaMoney"><img src="images/svg/d_bu02.svg"
+                    alt="海外債優惠"></a>
+              </div>
+              <div class="gift_slide gift_slide03">
+                <a href="javascript:;" class="gift gift03" data-prod=".goodMoney"><img src="images/svg/d_bu03.svg"
+                    alt="基金優惠"></a>
+              </div>
+              <div class="gift_slide gift_slide04">
+                <a href="javascript:;" class="gift gift04" data-prod=".buyHouse"><img src="images/svg/d_bu04.svg"
+                    alt="房、信貸優惠"></a>
+              </div>
+              <div class="gift_slide gift_slide05">
+                <a href="javascript:;" class="gift gift05" data-prod=".changeMoney"><img src="images/svg/d_bu05.svg"
+                    alt="換匯優惠"></a>
+              </div>
+            </div>
+            <!-- fruit_gift -->
+            <div class="fruit_giftBox">
+              <div class="fruit_gift f_butter f_butter01"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_gift f_butter f_butter02"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_gift f_butter f_butter03"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_gift f_butter f_butter04"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_gift f_ff f_ff01"><img src="images/svg/blueberry.svg" alt=""></div>
+              <div class="fruit_gift f_ff f_ff02"><img src="images/svg/strawberry.svg" alt=""></div>
+            </div>
+
+            <!-- fruit_store -->
+            <div class="fruit_storeBox">
+              <div class="fruit_store s_butter s_butter01"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_store f_ss f_ss01"><img src="images/svg/strawberry.svg" alt=""></div>
+              <div class="fruit_store f_ss f_ss02 pc"><img src="images/svg/blueberry.svg" alt=""></div>
+            </div>
+
+            <!-- 消費好禮 box -->
+            <div class="store_slideBox slidebox">
+              <div class="store_slide store_slide01">
+                <a href="javascript:;" class="store store01" data-store=".sp01"><img src="images/svg/s_bu01.svg"
+                    alt="富邦健康管理"></a>
+              </div>
+              <div class="store_slide store_slide02">
+                <a href="javascript:;" class="store store02" data-store=".sp02"><img src="images/svg/s_bu02.svg"
+                    alt="MyMusic"></a>
+              </div>
+              <div class="store_slide store_slide03">
+                <a href="javascript:;" class="store store03" data-store=".sp03"><img src="images/svg/s_bu03.svg"
+                    alt="myVideo"></a>
+              </div>
+              <div class="store_slide store_slide04">
+                <a href="javascript:;" class="store store04" data-store=".sp04"><img src="images/svg/s_bu04.svg"
+                    alt="myBook"></a>
+              </div>
+              <div class="store_slide store_slide05">
+                <a href="javascript:;" class="store store05" data-store=".sp05"><img src="images/svg/s_bu05.svg"
+                    alt="ALUXE"></a>
+              </div>
+              <div class="store_slide store_slide06">
+                <a href="javascript:;" class="store store06" data-store=".sp06"><img src="images/svg/s_bu06.svg"
+                    alt="老協珍"></a>
+              </div>
+              <div class="store_slide store_slide07">
+                <a href="javascript:;" class="store store07" data-store=".sp07"><img src="images/svg/s_bu07.svg"
+                    alt="京盛宇頂級茶品"></a>
+              </div>
+              <div class="store_slide store_slide08">
+                <a href="javascript:;" class="store store08" data-store=".sp08"><img src="images/svg/s_bu08.svg"
+                    alt="金色三麥"></a>
+              </div>
+              <div class="store_slide store_slide09">
+                <a href="javascript:;" class="store store09" data-store=".sp09"><img src="images/svg/s_bu09.svg"
+                    alt="微兜餐酒館"></a>
+              </div>
+              <div class="store_slide store_slide10">
+                <a href="javascript:;" class="store store10" data-store=".sp10"><img src="images/svg/s_bu10.svg"
+                    alt="UMAMI金色三麥"></a>
+              </div>
+              <div class="store_slide store_slide11">
+                <a href="javascript:;" class="store store11" data-store=".sp11"><img src="images/svg/s_bu11.svg"
+                    alt="BAC"></a>
+              </div>
+            </div>
+            <!-- fruit_store -->
+            <div class="fruit_storeBox">
+              <div class="fruit_store s_butter s_butter02"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_store s_butter s_butter03"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_store s_butter s_butter04"><img src="images/svg/cream.svg" alt=""></div>
+              <div class="fruit_store f_ss f_ss02"><img src="images/svg/blueberry.svg" alt=""></div>
+            </div>
+
+            <!-- 消費好禮 title -->
+            <div class="member_store"><img src="images/svg/title_ store.svg" alt="消費好禮"></div>
+          </div>
+        </div>
+
+        <!-- inner_peoplebox -->
+        <div class="inner_peoplebox skr" data-1200="bottom:-15vh;" data-1500="bottom:0;">
+          <div>
+            <div class="inner_people inpeo01"><img src="images/svg/gift.svg" alt=""></div>
+            <div class="inner_people inpeo02"><img src="images/svg/man_ squat.svg" alt=""></div>
+            <div class="inner_people inpeo03"><img src="images/svg/man_gift.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- peoplebox -->
+    <div class="people_box skr">
+      <div>
+        <div class="people peo01" data-200="right: -3.5%; display: block;" data-800="right: -50%; display: block;"
+          data-801="right: -200%; display: none;"><img src="images/svg/girl_run.svg" alt=""></div>
+        <div class="people peo02" data-200="right: 8.5%; display: block;" data-800="right: -50%; display: block;"
+          data-801="right: -200%; display: none;"><img src="images/svg/man_balloon.svg" alt=""></div>
+        <div class="people peo03" data-200="right: 85%; display: block;" data-800="right: 150%; display: block;"
+          data-801="right: 300%; display: none;"><img src="images/svg/man_walk.svg" alt=""></div>
+        <div class="people peo04" data-200="right: 100.5%; display: block;" data-800="right: 150%; display: block;"
+          data-801="right: 300%; display: none;"><img src="images/svg/girl_cake.svg" alt=""></div>
+        <div class="people peo05" data-200="right: 108.5%; display: block;" data-800="right: 150%; display: block;"
+          data-801="right: 300%; display: none;"><img src="images/svg/man_cheer.svg" alt=""></div>
+      </div>
+    </div>
+
+    <div id="main">
+
+      <!-- kv -->
+      <div class="kv skr" data-0="transform: translateY(-0%); display: block;"
+        data-700="transform: translateY(-110%); display: block;"
+        data-701="transform: translateY(-200%); display: none;">
+        <div class="container">
+          <div class="kvTlt"><img src="images/svg/KV_title.svg" alt="富邦財富管理會員 生日好禮多重送"></div>
+
+          <!-- 點我許願 -->
+          <a href="javascript:;" class="make_wish">點我許願</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="flexBox right01">
+          <div class="foot_tlt">謹慎理財 信用無價</div>
+          <div class="foot_right">
+            <p>信用卡循環年利率：本行指數型房貸基準利率(I)+加碼利率(該加碼利率區間為0.62%~14.00%，基準日為108.1.1)</p>
+            <p>年利率上限為15%。預借現金手續費：預借金額×2.5%。其他費用請至 <a class="inline" href="http://www.fubon.com"
+                target="_blank">http://www.fubon.com</a> 查詢。</p>
+          </div>
+        </div>
+        <div class="flexBox right02">
+          <div>© 台北富邦商業銀行股份有限公司</div>
+          <div class="foot_line"></div>
+          <div>本行24H服務專線：02-8751-6665</div>
+          <div class="foot_line pc"></div>
+          <div class="foot_device">建議瀏覽器版本：IE9、Chrome 40、Safari 5、FireFox 30 以上版</div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scrollImg hide">
+      <img src="images/svg/scrool.svg" alt="">
+    </div>
+  </div>
+
+
+  <!--** 商品 popup 區 *****************************-->
+  <div class="pop_mask prod">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox">
+        <!-- 基金優惠 -->
+        <div class="tentDiv goodMoney">
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="prod_icon"><img src="images/svg/d_icon03.svg" alt="富邦基金優惠"></div>
+                <div class="prod_tttImg">
+                  <img class="pc" src="images/svg/d_title03.svg" alt="富邦理財致富輕鬆折">
+                  <img class="mobile" src="images/svg/d_title03_m.svg" alt="富邦理財致富輕鬆折">
+                </div>
+              </div>
+              <!-- 小標 -->
+              <div class="prod_secTlt">
+                <div>生日當月(含)起3個月內，享基金單筆申購手續費最低<span class="blue">1折</span>優惠</div>
+              </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月(含)起3個月內至台北富邦銀行出示電子生日賀卡，或於自動化通路登入確認身分即可享基金單筆申購手續費優惠乙次(排除ETF、貨幣型及後收型基金)。
+              </div>
+              <!-- checkList -->
+              <ul class="check_list">
+                <li>私人銀行會員享單筆申購手續費1折</li>
+                <li>白金理財會員享單筆申購手續費2折</li>
+                <li>個人理財會員享單筆申購手續費3折</li>
+              </ul>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員(個人理財、白金理財與私人銀行理財)之個人戶(不適用國際金融業務分行客戶)。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 立即申購 -->
+              <div class="buy_box">
+                <a href="https://ebank.taipeifubon.com.tw/B2C/common/Index.faces" target="_blank"
+                  class="ps_btn">立即申購</a>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動之優惠限本人承作，且不得與其他優惠專案合併使用。</li>
+                <li>本活動僅臨櫃交易、網路銀行、行動銀行、語音交易擇一使用，自動化通路申購將套用第一筆交易做為生日優惠。</li>
+                <li>已使用手續費優惠之交易，若取消該交易者，將喪失該手續費折扣優惠資格。</li>
+                <li>本活動之手續費折扣優惠專案所適用之優惠費率及全系列基金標的，係以本活動期間內新申請之契約辦理，且於營業時間內生效之新契約為限。</li>
+                <li>所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 警語 -->
+              <div class="then_box">
+                <div class="flexBox thbtnb">
+                  <a href="javascript:;" class="then_btn">基金警語</a>
+                </div>
+                <!-- 警語小標 -->
+                <div class="then_tlt pink">提醒您投資人透過本行辦理『特定金錢信託投資國內外基金』業務應注意事項</div>
+                <!-- 警語list -->
+                <ul class="then_list rule_list rult02">
+                  <li>
+                    本基金經金融監督管理委員會核准或同意生效，惟不表示絕無風險。本行以往之經理績效不保證基金之最低投資收益；本行除盡善良管理人之注意義務外，不負責本基金之盈虧，亦不保證最低之收益，投資人申購前應詳閱基金公開說明書。
+                  </li>
+                  <li>
+                    基金投資非屬存款保險承保範圍，基金投資具投資風險，此一風險可能使本金發生虧損，投資人須自負盈虧，本行不保本不保息，本行除盡善良管理人注意義務外，不擔保投資盈虧或運作績效，投資所可能產生的本金虧損、匯率損失、或基金解散、清算、移轉、合併等風險，仍均由投資人自行承擔。
+                  </li>
+                  <li>投資人為投資標的之運用指示前，已確實詳閱該投資標的之相關資料及其規定，並已暸解各項投資風險（包括最大可能損失為損失所有投資本金之可能）。</li>
+                  <li>
+                    投資人辦理特定金錢信託業務時，需瞭解並同意本行可能得自交易對手之任何費用，均係作為本行收取之基金通路報酬，投資人可至本行基金通路報酬揭露網頁中查詢。有關基金應負擔之費用（境外基金含分銷費用）已揭露於基金之公開說明書及投資人須知中，投資人可至公開資訊觀測站或境外基金資訊觀測站中查詢。
+                  </li>
+                  <li>
+                    基金淨值可能因市場因素而上下波動，基金淨值僅供參考，實際以基金經理公司公告之淨值為準；部分基金採雙軌報價，申購參考價格／贖回參考價格僅供參考，實際交易以基金經理公司所公告的買回價／賣出價為計算基礎；海外交易所買賣基金及國內指數股票型基金（ETF）之淨值、參考贖回價格、參考申購價格皆為集中市場之市場收盤價。國內外指數股票型基金（ETF）之淨值並非客戶實際成交價格，客戶買賣成交價格為本行於交易所實際成交之平均價格。（如為假日則再遞延至次一營業日）。
+                  </li>
+                  <li>
+                    基金交易應考量之風險因素如下：(1)投資標的及投資地區可能產生之風險：市場（政治、經濟、社會變動、匯率、利率、股價、指數或其他標的資產之價格波動）風險、流動性風險、信用風險、產業景氣循環變動、證券相關商品交易、法令、貨幣等風險。(2)因前述風險、受益人大量買回或基金暫停計算買回價格等因素，或有延遲給付買回價金之可能。
+                  </li>
+                  <li>部分基金可能持有衍生性商品部位，可能達基金淨資產價值之100%，可能造成基金淨值高度波動及衍生其他風險。</li>
+                  <li>投資人之交易如經基金經理公司認定為短線交易者，基金經理公司或銷售機構可拒絕受理申請轉換或申購要求，並可請求支付一定比例之贖回費用或其他相關費用，費用標準均依各該基金經理公司之規定。</li>
+                  <li>投資人因不同時間進場，將有不同之投資績效，過去之績效亦不代表未來績效之保證，故不一定能取回全部之投資金額，投資人應慎選投資標的。</li>
+                  <li>
+                    以高收益債券為訴求之基金(以下簡稱本類基金)係主要或有相當比重投資於非投資等級之高風險債券。本類基金經金融監督管理委員會核准，惟不表示絕無風險且不宜占投資組合過高之比重。由於高收益債券之信用評等未達投資等級或未經信用評等，且對利率變動的敏感度甚高，故本類基金可能會因利率上升､市場流動性下降，或債券發行機構違約不支付本金、利息或破產而蒙受虧損。另境內基金可能投資總金額不超過基金淨資產價值30%於美國
+                    Rule 144A
+                    規定之債券，該債券屬私募性質，較可能發生流動性不足，財務訊息揭露不完整或因價格不透明導致波動性較大之風險。本類基金不適合無法承擔相關風險之投資人且屬退休人士之投資人需確認已充分了解本類基金之各項投資風險。投資人於交易前除須對本風險預告詳加研讀外，尚應審慎詳閱基金公開說明書，確實做好財務規劃與適當風險評估，並自行承擔投資風險。
+                  </li>
+                  <li>有關本行架上各家境外基金之『公平價格調整機制』及『反稀釋機制』彙整說明，投資人請詳見本行官網『基金‧投資‧信託』內各檔基金基本資料中『投資人服務及保護』查詢。</li>
+                  <li>
+                    基金的配息可能由基金的收益或本金中支付，任何涉及由本金支出的部分，可能導致原始投資金額減損；另基金進行配息前有可能未先扣除應負擔之相關費用。投資人可至各家基金公司或總代理人網站查詢最近12個月內由本金支付配息之相關資料。基金配息率不代表基金報酬率，且過去配息率不代表未來配息率。
+                  </li>
+                  <li>
+                    投資於中國之基金應依中華民國相關法令之規定：境外基金投資大陸地區證券市場之有價證券以掛牌上市有價證券為限，且投資前述有價證券總金額不得超過該境外基金淨資產價值之百分之十(符合「鼓勵境外基金深耕計畫」之境外基金，其投資大陸地區有價證券總金額上限為該基金淨資產價值之百分之三十)，故並非完全投資於大陸地區有價證券；投信基金投資大陸地區之有價證券雖可包括其證券集中交易市場交易之股票、存託憑證或符合一定信用評等之債券等且法令並無規範投資總金額之上限，惟仍應符合信託契約、公開說明書、證券投資信託基金管理辦法等相關規定及受到基金經理公司QFII額度之限制，故亦非一定完全投資於大陸地區有價證券。又投資人亦須留意中國市場政府政策、法令、會計稅務制度、經濟與市場等變動所可能產生之投資風險。
+                  </li>
+                  <li>本文提及之經濟走勢預測不必然代表本基金之績效，本基金投資風險請詳閱基金公開說明書。</li>
+                  <li>基金休市及暫停報價日查詢資料僅供參考，本行將依基金公司通知隨時更新及調整資料，實際成交報價仍依基金公司提供之確認單為準。</li>
+                  <li>
+                    基金組合試算問卷及個人理財報告書之內容僅供參考，並不構成或解釋為本行對任何金融商品之招攬、推介、行銷或任何形式之要約。任何基於前開問卷或報告書內容之任何交易或投資決定，投資人均須自負風險及盈虧，本行不負任何責任。
+                  </li>
+                  <li>上述資料只供參考用途，嘉實資訊股份有限公司、理柏Lipper、彭博有限合夥企業自當盡力提供正確訊息，但如有錯漏或疏忽，本行或關係企業與其任何董事或任何受僱人，恕不負任何法律責任。</li>
+                  <li>以上內容及相關規定以本行實際作業為準，本行保留隨時終止或更改之權利。有關本行經營信託業務之相關資訊可至本行官網查詢。地址：台北市大安區仁愛路四段169號，服務專線(02)8751-6665。
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- 換匯優惠 -->
+        <div class="tentDiv changeMoney">
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="prod_icon"><img src="images/svg/d_icon05.svg" alt="富邦換匯優惠"></div>
+                <div class="prod_tttImg">
+                  <img class="pc" src="images/svg/d_title05.svg" alt="富邦輕鬆換匯345">
+                  <img class="mobile" src="images/svg/d_title05_m.svg" alt="富邦輕鬆換匯345">
+                </div>
+              </div>
+              <!-- 小標 -->
+              <div class="prod_secTlt">
+                <div>生日當月享換匯<span class="blue">美元0.03元</span>、<span class="blue">日圓0.0004元</span>、<span
+                    class="blue">歐元0.05元</span>優惠</div>
+              </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至台北富邦銀行出示本優惠訊息(手機或列印本電子生日賀卡)，臨櫃以新臺幣帳戶換匯享美元0.03元、日圓0.0004元、歐元0.05元優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員(個人理財、白金理財與私人銀行理財)之個人戶(不適用國際金融業務分行客戶)。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動之優惠限本人承作，且不得與其他優惠專案合併使用。</li>
+                <li>臨櫃換匯限新臺幣帳戶兌換不含現鈔。</li>
+                <li>客戶承作外幣存款須自行承擔日後轉換為新臺幣或其他幣別所可能產生之匯兌風險。</li>
+                <li>換匯匯率優惠限新臺幣結購或結售美元、歐元或日圓，舉例：本行新臺幣兌美元即期賣匯為30.5(兌換1美元)，優惠0.03元，則表示客戶可以臺幣30.47元兌換1美元成交。</li>
+                <li>結匯金額超過等值新臺幣50萬元以上，需依規填寫外匯收支或交易申報書。</li>
+                <li>換匯優惠之提供僅限本行每營業日09:00~15:30時段，本行保留調整/取消換匯匯率優惠之權利。</li>
+                <li>所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 房、信貸優惠 -->
+        <div class="tentDiv buyHouse">
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="prod_icon"><img src="images/svg/d_icon04.svg" alt="富邦房、信貸優惠"></div>
+                <div class="prod_tttImg">
+                  <img class="pc" src="images/svg/d_title04.svg" alt="富邦置產理財幸福貸">
+                  <img class="mobile" src="images/svg/d_title04_m.svg" alt="富邦置產理財幸福貸">
+                </div>
+              </div>
+              <!-- 小標 -->
+              <div class="prod_secTlt">
+                <div>生日當月享貸款手續費、帳管費優惠</div>
+              </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至台北富邦銀行出示本優惠訊息(手機或列印本電子生日賀卡)，申辦貸款即可享有信貸手續費NT$2,000優惠；房貸帳管費NT$3,000優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限為上班族且在本行近三個月平均資產達100萬元之本行財富管理會員（個人理財、白金理財與私人銀行理財）之個人戶。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動之優惠限本人承作，且不得與其他優惠專案合併使用。</li>
+                <li>本信用貸款利率依指數型房貸基準年利率加碼1.22%~2.82%即時機動計息。</li>
+                <li>
+                  以貸款30萬元、期間5年，各項相關費用總金額2,000元計算，總費用年百分率2.55%-4.15%。本廣告揭露之年百分率係按主管機關備查之標準計算範例予以計算，實際貸款條件，仍以本行提供之產品為準。且每一客戶實際之年百分率仍視其個別貸款產品及授信條件而有所不同。
+                </li>
+                <li>總費用年百分率不等於貸款利率。</li>
+                <li>本費用年百分率之計算基準日為109/2/5。</li>
+                <li>
+                  本貸款自借款撥付日起算12個月內限制提前清償，違者依下列方式計付提前清償違約金；自借款撥付日起算6個月內提前清償者，按提前清償本金之4%計付，自借款撥付日起算第7個月起至第12個月內提前清償者，按提前清償本金金額之3%計付。
+                </li>
+                <li>
+                  線上申請適用對象為本行既有存款客戶、貸款客戶、信用卡正卡客戶或他行臨櫃存款帳戶之客戶(使用指定銀行帳戶認證)。線上送出申請後，可接續使用上傳申請文件功能，上傳您的身分證正反面及薪資/收入文件(檔案格式請準備為PNG、JPG、PDF)，以加速完成申請流程。最快8小時核貸是以本行營業日9:00~17:00計算，於前述時間內透過線上送出申請、並備齊申請所需文件之申請案件最快次一營業日核貸。不論您是透過線上申請或紙本申請本行信用貸款，若您為本行既有存款客戶或貸款客戶並符合線上簽約條件，本行將於核貸後通知邀請您進行線上簽約，您仍可選擇親臨分行簽約。
+                </li>
+                <li>所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <!-- 海外債優惠 -->
+        <div class="tentDiv seaMoney">
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="prod_icon"><img src="images/svg/d_icon02.svg" alt="富邦海外債優惠"></div>
+                <div class="prod_tttImg">
+                  <img class="pc" src="images/svg/d_title02.svg" alt="富邦穩健理財省更多">
+                  <img class="mobile" src="images/svg/d_title02_m.svg" alt="富邦穩健理財省更多">
+                </div>
+              </div>
+              <!-- 小標 -->
+              <div class="prod_secTlt">
+                <div>生日當月(含)起3個月內，申購海外債享手續費 <span class="blue">3折</span>優惠</div>
+              </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月(含)起3個月內，至台北富邦銀行出示本優惠訊息(手機或列印本電子生日賀卡)，並臨櫃申購海外債，即享有海外債手續費3折優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員(個人理財、白金理財與私人銀行理財)之個人戶(不適用國際金融業務分行客戶)。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動之優惠限本人承作，且不得與其他優惠專案合併使用。</li>
+                <li>已使用手續費優惠之當日交易、預約交易或長效單，若取消該筆交易，將喪失該筆交易手續費折扣優惠。</li>
+                <li>活動手續費優惠專案所適用之優惠費率，係以本活動期間內臨櫃新申請辦理，且於營業時間內生效之新契約為限，如於本活動期間本行營業時間內所申請之預約交易或長效單交易，將以實際生效日適用費率為準。</li>
+                <li>所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 警語 -->
+              <div class="then_box">
+                <div class="flexBox thbtnb">
+                  <a href="javascript:;" class="then_btn">投資風險警語</a>
+                </div>
+                <!-- 警語list -->
+                <ul class="then_list rule_list rult02">
+                  <li>本文宣並非為海外債券(以下簡稱本商品)銷售之要約或要約之引誘。本商品交易係本行依據投資人之運用指示，本行未就本商品之收益或盈虧為任何保證，亦不分擔投資風險。</li>
+                  <li>本商品投資並非存款；亦非屬存款保險承保範圍，客戶投資本商品前應詳閱「特定金錢信託資金投資海外公司債券產品說明暨投資風險預告書」，自行了解判斷並自負盈虧。</li>
+                  <li>投資人於交易前應充分了解本商品之性質及相關財務、會計、稅制或法律等事宜，自行審度本身財務狀況及風險承受程度，始決定是否進行投資，以免因交易遭到無法承受之損失。</li>
+                  <li>
+                    本商品投資之各項風險均應由客戶自行承擔，相關風險包括市場風險、匯兌風險、投資風險、流動性風險、信用與違約風險、國家風險、投資人提前贖回的風險、結算風險、利益衝突風險、槓桿風險、稅賦風險、次順位債券風險、變動配息率風險、新興市場風險、永續債相關風險等(以上為例示，依個別債券性質不同，所含風險有別)等，最大可能損失為全部投資本金(倘有利息，亦包含利息)。
+                  </li>
+                  <li>依照主管機關法令規範，專業投資人與非專業投資人可得投資之海外債券標的具備不同限制，各相關限制請詳依各海外債券之產品說明書。</li>
+                  <li>
+                    債券或其發行機構/保證機構信用評等為投資債券之重要評估指標之一，投資人應注意發行機構或保證機構之信用風險，其可能無法履行付息及還本承諾，投資人可能因此損失部分或全部原始投資本金。投資債券時，投資人請評估個人投資經驗、投資目標與風險承受程度，審慎選擇合適的信用評等債券。
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- 外幣優利定存 -->
+        <div class="tentDiv foriMoney">
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="prod_icon"><img src="images/svg/d_icon01.svg" alt="富邦外幣優利定存"></div>
+                <div class="prod_tttImg">
+                  <img class="pc" src="images/svg/d_title01.svg" alt="富邦雙倍利率，加倍誠意">
+                  <img class="mobile" src="images/svg/d_title01_m.svg" alt="富邦雙倍利率，加倍誠意">
+                </div>
+              </div>
+              <!-- 小標 -->
+              <div class="prod_secTlt">
+                <div>生日當月享美元3個月優利定存<span class="blue">雙倍年利率</span></div>
+              </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至台北富邦銀行出示本優惠訊息(手機或列印本電子生日賀卡)，並臨櫃承作美元3個月優利定存，利率即依本行美元定存3個月期牌告享年利率加倍，每人承作上限美元5萬元，資金來源限為新資金或臺幣轉存。
+                <div class="pink">舉例：若3個月牌告利率為0.5%，0.5% X 2= 1%，專案年利率為1%。</div>
+              </div>
+              <!-- 資金來源 -->
+              <div class="date_box flexBox">
+                <div class="dbT">資金來源</div>
+                <div class="ddd">資金來源限定新資金、新臺幣定存或新臺幣活存轉存，說明如下：</div>
+              </div>
+              <!-- checkList -->
+              <ul class="check_list">
+                <li>
+                  <div class="bold">新資金：</div>生日前月(含)自其他金融機構匯入或以本行受理之現鈔存入之新臺幣、外幣資金，以及本行薪資轉帳入帳之薪資。
+                </li>
+                <li>
+                  <div class="bold">新臺幣定存轉存：</div>生日當月(含)以前，已於本行承作之新臺幣定存，於活動期間內中途解約或到期換匯轉存本專案。
+                </li>
+                <li>
+                  <div class="bold">新臺幣活存轉存：</div>於活動期間內，以本行新臺幣活存帳戶換匯轉存本專案。
+                </li>
+              </ul>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員(個人理財、白金理財與私人銀行理財)之個人戶(不適用國際金融業務分行客戶)。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動之優惠限本人承作，且不得與其他優惠專案合併使用。</li>
+                <li>以上優惠利率以年利率表示，固定利率計息，客戶承作本專案定存之利息依客戶實際存款期間計算。</li>
+                <li>本專案之優惠定期存款利息以單利計息，優惠利率以本行美元3個月期美元定存牌告年利率X 2
+                  ，且到期後不得再以本專案之優惠利率續存，本行將依照客戶約定之到期處理指示辦理。若本專案定期存款到期後辦理續存，該續存之定期存款利率係按到期當時本行之牌告利率承作，不得再按本專案優惠利率續存。</li>
+                <li>
+                  本專案之優惠定期存款中途解約者，不適用上述約定之優惠利率，利息應改按起存日本行一般牌告與實存期間相當期別之定期存款適用利率單利八折計付(例如：存滿一個月未滿二個月者，按本行一個月定期存款牌告利率八折計息)，未存滿一個月中途解約者，不予計息。如中途解約，本行有權請求客戶給付溢付之利息差額，並自客戶存款本金內扣抵前所溢付之利息差額。
+                </li>
+                <li>客戶承作外幣存款須自行承擔日後轉換為新台幣或其他幣別所可能產生之匯兌風險。</li>
+                <li>本專案未規範之其他相關事宜，適用客戶與本行另立之存款約據(含其變更或修訂)之約定內容辦理。為因應市場狀況，本行將保留變更、提前結束或延長本活動之權利，變更內容以本行官方網站公告為準。</li>
+                <li>所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+        <a href="javascript:;" class="ppBack"><img src="images/svg/back_b.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+
+  <!--** 特約店 popup 區 *****************************-->
+  <div class="pop_mask spStore">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox">
+        <!-- 富邦健康管理 -->
+        <div class="tentDiv fubonHealth sp01">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon01.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo01.png" alt="富邦健康管理"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title01.svg" alt="富邦健康管理">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im01.jpg" alt="富邦健康管理"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享精選<span class="bold">防癌免疫健檢套餐專案價</span>。 </div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至富邦健康管理-富盈診所，出示本優惠訊息(手機或列印本電子生日賀卡) 或憑身分證件與可識別為本行客戶之證明(如金融卡/存摺等)，即可享有健檢生日套餐優惠價。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>部分健康檢查項目有安排特定日期，須依富邦健康管理【富盈診所】規範辦理。</li>
+                <li>套餐內容及專案價格請洽富邦健康管理【富盈診所】，洽詢預約專線：(02)6636-3996，此專案項目不得保留或更換其他等值項目。</li>
+                <li>富邦健康管理【富盈診所】保有隨時修改及終止活動之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.fubonhealth.com" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- MyMusic -->
+        <div class="tentDiv myMusic sp02">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon02.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo02.png" alt="MyMusic"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title02.svg" alt="MyMusic">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im02.jpg" alt="MyMusic"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享MyMusic<span class="bold">免費試聽30天</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月透過連結註冊會員，即可享有免費試聽30天優惠
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>請於有效期限內完成開通作業，免費試聽天數以開通日開始計算。</li>
+                <li>免費體驗天數不得要求兌換現金、轉售等其它使用。</li>
+                <li>MyMusic保有隨時修改及終止活動之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://mymusic.fan/0Cq6M" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- myVideo -->
+        <div class="tentDiv myVideo sp03">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon03.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo03.png" alt="MyMusic"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title03.svg" alt="myVideo">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im03.jpg" alt="MyMusic"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享 myVideo 影音<span class="bold">免費豪華月租體驗30天</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月透過連結註冊會員，即可享有免費豪華月租體驗30天
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>請於有效期限內完成開通作業，免費體驗天數以開通日開始計算。</li>
+                <li>
+                  myVideo可於智慧型手機、平板、電腦收看，支援Android、iOS系統，若因裝置平台與作業系統版本之限制，或Android與iOS裝置非正式升級(Root)越獄(JB)者，恕無法提供服務，同一帳號可在三台裝置使用，但同時僅能登入一台裝置使用。
+                </li>
+                <li>myVideo採影音串流技術(Streamng)，上網傳輸費依收看時所選擇電信業者上網方案計費。</li>
+                <li>myVideo僅授權台灣地區(台澎金馬)使用。</li>
+                <li>免費體驗天數不得要求兌換現金、轉售等其它使用。</li>
+                <li>myVideo保有隨時修改及終止活動之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.myvideo.net.tw" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- myBook -->
+        <div class="tentDiv myBook sp04">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon04.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo04.png" alt="MyMusic"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title04.svg" alt="myBook">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im04.jpg" alt="myBook"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享好書隨我讀 近200本好書/小說<span class="bold inblock">免費看30天</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月透過連結註冊會員，即可享有免費好書隨我讀體驗30天
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>請於有效期限內完成開通作業，免費體驗天數以開通日開始計算。</li>
+                <li>請下載myBook APP，開啟APP內《月租館_好書隨我讀》即可閱讀服務內任一刊物，服務到期後則無法再閱讀。</li>
+                <li>同一帳號可同時登錄3台載具，請在手機/平板/網站上使用本服務。</li>
+                <li>免費體驗天數不得要求兌換現金、轉售等其它使用。</li>
+                <li>myBook保有隨時修改及終止活動之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://bit.ly/2YrVHld" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- ALUXE -->
+        <div class="tentDiv myBook sp05">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon06.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo05.png" alt="ALUXE"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title05.svg" alt="ALUXE">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im05.jpg" alt="ALUXE"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享頂級珠寶全台門市<span class="bold">8折優惠</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至全台ALUXE門市消費，出示本優惠訊息(手機或列印本電子生日賀卡)，即可享有8折優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>本活動僅適用於台灣ALUXE亞立詩門市，期限至2021年06月30日止，逾期自動失效。</li>
+                <li>Disney/Acredo/Lo Dico/GIA鑽石及黃金系列不包含在此活動內。</li>
+                <li>如有任何爭議，ALUXE保有活動最後變更、解釋、行使之權利，實際使用方式請依照門市為主，恕不另行公告。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://aluxediamond.com/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- 老協珍 -->
+        <div class="tentDiv myBook sp06">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon08.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo06.png" alt="老協珍"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title06.svg" alt="老協珍">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im06.jpg" alt="老協珍"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月至網路門市消費可享最高NT$<span class="bold">388</span>折扣優惠</div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至網路門市消費，結帳輸入折扣碼即享有優惠。<br />熬雞精禮盒(常溫/14入)：<br />
+                <a href="https://lxz.com.tw/Product/CCB696" target="_blank"
+                  class="inline">https://lxz.com.tw/Product/CCB696</a><br />
+                結帳輸入折扣碼<span class="green">【fubon388】現折$388</span><br /><br />
+                燉燕窩禮盒(6入)：<br />
+                <a href="https://lxz.com.tw/Product/CCB697" target="_blank"
+                  class="inline">https://lxz.com.tw/Product/CCB697</a><br />
+                結帳輸入折扣碼<span class="green">【fubon288】現折$288</span>
+
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>本優惠活動只限於至老協珍官網(lxz.com.tw)，消費指定商品使用，不得與其他優惠活動併用。</li>
+                <li>上述優惠恕無法累積、折現。</li>
+                <li>如有任何爭議，老協珍保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://lxz.com.tw/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- 京盛宇 -->
+        <div class="tentDiv myBook sp07">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon07.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo07.png" alt="京盛宇"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title07.svg" alt="京盛宇">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im07.jpg" alt="京盛宇"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月享有網路商店<span class="bold">購物金NT$100</span><br />全台門市<span
+                  class="bold">9折優惠</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至全台京盛宇門市消費，出示本優惠訊息(手機或列印本電子生日賀卡)，並加入會員，即可享有9折優惠。京盛宇官方網路商店購物金NT$100，折扣碼：<span
+                  class="green">『Fubon』</span>
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，且不得與其他優惠專案合併使用。</li>
+                <li>『Fubon』折扣碼有效期限自2020/07/01-2020/6/30有效，有效期限內，不限購買筆數，每筆皆可以使用一次折扣碼折價NT$100，上述優惠恕無法累積、折現。</li>
+                <li>如有任何爭議，京盛宇保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.jsy-tea.com/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- 金色三麥 -->
+        <div class="tentDiv myBook sp08">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon09.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo08.png" alt="金色三麥"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title08.svg" alt="金色三麥">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im08.jpg" alt="金色三麥"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月至全台金色三麥內用消費即贈送<span class="bold">6吋蛋糕乙份。</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至全台金色三麥內用消費，出示本優惠訊息(手機或列印本電子生日賀卡)，並加入會員，即贈壽星禮６吋蛋糕乙份。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>蛋糕須提前三天預訂。</li>
+                <li>如有任何爭議，金色三麥保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.lebledor.com/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- petit doux微兜 -->
+        <div class="tentDiv myBook sp09">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon10.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo09.png" alt="petit doux微兜"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title09.svg" alt="petit doux微兜">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im09.jpg" alt="petit doux微兜"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月至全台微兜餐酒館消費，即贈<span class="bold inblock">瓦帕鬆餅乙份。</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至微兜餐酒館內用消費，出示本優惠訊息(手機或列印本電子生日賀卡)，並加入會員，即贈壽星禮瓦帕鬆餅乙份。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>瓦帕鬆餅須提前三天預訂。</li>
+                <li>如有任何爭議，微兜保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.petitdoux.com/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- UMAMI金色三麥 -->
+        <div class="tentDiv myBook sp10">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon09.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo10.png" alt="UMAMI金色三麥"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title10.svg" alt="UMAMI金色三麥">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im10.jpg" alt="UMAMI金色三麥"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月至店內用餐享<span class="bold inblock">８折優惠。</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至UMAMI金色三麥內用消費，出示本優惠訊息(手機或列印本電子生日賀卡)，即享８折優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>如有任何爭議，UMAMI金色三麥保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.lebledor.com/location/umami" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- BAC Cake&Sweet -->
+        <div class="tentDiv myBook sp11">
+          <!-- 特約icon -->
+          <div class="spStore_icon"><img src="images/svg/s_icon11.svg" alt=""></div>
+          <!-- 特約logo -->
+          <div class="spStore_logo"><img src="images/s_logo11.png" alt="BAC Cake&Sweet"></div>
+          <div class="scrollBox">
+            <div class="innerScroll">
+              <!-- 大標 -->
+              <div class="prodTlt flexBox">
+                <div class="spStore_tttImg">
+                  <img src="images/svg/s_title11.svg" alt="BAC Cake&Sweet">
+                </div>
+              </div>
+              <!-- 商品圖 -->
+              <div class="spStore_pdImg"><img src="images/s_im11.jpg" alt="BAC Cake&Sweets"></div>
+              <!-- 小標 -->
+              <div class="spStore_secTlt">生日當月至全台門市享有六吋經典巧克力系列蛋糕<span class="bold inblock">9折優惠。</span></div>
+              <!-- 藍方塊 -->
+              <div class="blue_cube">
+                生日當月至 BAC門市消費，出示本優惠訊息(手機或列印本電子生日賀卡)，即享六吋經典巧克力系列蛋糕9折優惠。
+              </div>
+              <!-- 活動對象 -->
+              <div class="date_box flexBox">
+                <div class="dbT">活動對象</div>
+                <div class="ddd">限本行財富管理會員（個人理財、白金理財與私人銀行理財）。</div>
+              </div>
+              <!-- 優惠期間 -->
+              <div class="date_box flexBox">
+                <div class="dbT">優惠期間</div>
+                <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+              </div>
+              <!-- 活動規則 -->
+              <ul class="rule_list">
+                <li>本活動僅限台北富邦銀行財富管理會員使用，每人限兌換乙次，且不得與其他優惠專案合併使用。</li>
+                <li>如有任何爭議，BAC Cake&Sweets 保有活動最後變更、解釋、行使之權利。所載之活動內容本行保留隨時終止或更改之權利，並於本行網站公告週知，其他未盡事宜悉依本行相關作業辦法辦理。</li>
+              </ul>
+              <!-- 官網連結 -->
+              <a href="https://www.baccake.com/" target="_blank" class="sp_btn">官網看看</a>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <a href="javascript:;" class="ppBack"><img src="images/svg/back_g.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--** popup區 *****************************-->
+
+  <!-- 無會員資料 -->
+  <div class="pop_mask noData">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox green_alertBox">
+        <div class="overDiv">
+          <div class="g_manimg"><img src="images/svg/man_cake.svg" alt=""></div>
+          <!-- 內容區 -->
+          <div class="flexBox tentent">
+            <div class="alrimg"><img src="images/svg/remind.svg" alt=""></div>
+            <div class="alrTlt">尊貴的財富管理會員：</div>
+            <p class="alrP">系統找不到您的資料，<br />請稍後再試或與專人聯繫。</p>
+          </div>
+        </div>
+        <a href="javascript:;" class="closepp_btn"><img src="images/svg/close.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 已經抽過 -->
+  <div class="pop_mask alreadyDid">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox green_alertBox">
+        <div class="overDiv">
+          <div class="g_manimg"><img src="images/svg/man_cake.svg" alt=""></div>
+          <!-- 內容區 -->
+          <div class="flexBox tentent">
+            <div class="alrTlt">尊貴的財富管理會員：</div>
+            <p class="alrP">您已經抽過生日大禮囉！<br>歡迎點擊下方<span class="inblock">看看其他生日好禮優惠！</span></p>
+
+            <!-- 雙按鈕 box -->
+            <div class="anc_box flexBox">
+              <a href="javascript:;" class="anchor anC" data-posx="700" data-posxm="0.205" data-posxmp="600">理財好禮</a>
+              <a href="javascript:;" class="anchor anC" data-posx="1500" data-posxm="0.51" data-posxmp="1180">消費好禮</a>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="closepp_btn"><img src="images/svg/close.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 立即抽獎 -->
+  <div class="pop_mask immedi">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox blue_alertBox">
+        <div class="innerDiv">
+          <div class="g_wemanimg"><img src="images/svg/girl_gift.svg" alt=""></div>
+          <!-- 內容區 -->
+          <div class="flexBox tentent">
+            <div class="alrTlt">尊貴的財富管理會員：</div>
+            <p class="imdP">祝福您生日快樂！<br />富邦除了提供豐富多重好禮外，<br />還為特別的您準備了生日驚喜<br />"博客來千元購物金"</p>
+            <p class="imdP p02">即抽即開獎，還可立即折抵呦！<br />快來點擊下方抽獎吧！</p>
+
+            <!-- 優惠日期 -->
+            <!-- <div class="date_box flexBox">
+              <div class="dbT">優惠期間</div>
+              <div class="ddd">2020年07月01日 ~ 2021年06月30日</div>
+            </div> -->
+
+            <!-- 隱私權 -->
+            <div class="privacy_box">
+              <input type="checkbox" id="priv" name="priv">
+              <label for="priv">我同意依中華民國所得稅法規定，年度累積中獎價值若過新臺幣1,000元整，應列入中獎人年度綜合所得。</label>
+            </div>
+
+            <!-- 雙按鈕 box -->
+            <div class="anc_box flexBox">
+              <a href="javascript:;" class="immedi_anC anC">立即抽獎</a>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="closepp_btn"><img src="images/svg/close.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 未中獎 -->
+  <div class="pop_mask noAward">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox blue_alertBox">
+        <div class="innerDiv">
+          <div class="g_wemanimg"><img src="images/svg/girl_gift.svg" alt=""></div>
+          <!-- 內容區 -->
+          <div class="flexBox tentent">
+            <div class="awdImg"><img src="images/svg/man_happy.svg" alt=""></div>
+            <div class="alrTlt">尊貴的財富管理會員：</div>
+            <p class="celcP">在這個重要的日子裡，<br />富邦祝福您生日快樂！</p>
+            <p class="celcP p02">快來看看我們幫您準備了什麼禮物！</p>
+
+            <!-- 雙按鈕 box -->
+            <div class="anc_box flexBox">
+              <a href="javascript:;" class="anchor anC" data-posx="700" data-posxm="0.205" data-posxmp="600">理財好禮</a>
+              <a href="javascript:;" class="anchor anC" data-posx="1500" data-posxm="0.51" data-posxmp="1180">消費好禮</a>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="closepp_btn"><img src="images/svg/close.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 有中獎 -->
+  <div class="pop_mask Award">
+    <div class="flexBox">
+      <div class="close_mask"></div>
+      <div class="tentbox blue_alertBox open">
+        <div class="innerDiv">
+          <div class="g_wemanimg"><img src="images/svg/girl_balloon.svg" alt=""></div>
+          <!-- 內容區 -->
+          <div class="flexBox tentent">
+            <div class="awdImg"><img src="images/svg/man_happy.svg" alt=""></div>
+            <div class="awdTlt">恭喜您中獎!</div>
+            <div class="awdImgBBB flexBox">
+              <div class="awdBBBimg"><img src="images/bookslogo.png" alt="富邦祝福您生日快樂！"></div>
+              <div class="awdLine"></div>
+              <!-- 中獎內容 -->
+              <div class="awdBBBtxt">
+                <div class="awdSt">博客來 電子禮物卡</div>
+                <!-- 禮券金額 -->
+                <div class="awdBt">$<span>2,000</span> 元</div>
+              </div>
+            </div>
+            <p class="ttpp">＊請至您的Email確認得獎信函</p>
+            <p class="celcP p02">另外我們禮上加禮<br />快來看看我們幫您準備了什麼禮物！</p>
+
+            <!-- 雙按鈕 box -->
+            <div class="anc_box flexBox">
+              <a href="javascript:;" class="anchor anC" data-posx="700" data-posxm="0.205" data-posxmp="600">理財好禮</a>
+              <a href="javascript:;" class="anchor anC" data-posx="1500" data-posxm="0.51" data-posxmp="1180">消費好禮</a>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="closepp_btn"><img src="images/svg/close.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 遊戲區 -->
+  <div class="gameBox">
+    <div class="gameBox_inner">
+      <div class="bg bg_a" data-0="background-position: 0px 0px;" data-1700="background-position: -500px -8000px;">
+      </div>
+      <div class="bg bg_b" data-0="background-position: 0px 0px;" data-1700="background-position: 500px -4000px;"></div>
+      <div class="bg bg_c" data-0="background-position: 0px 0px;" data-1700="background-position: 100px -2000px;"></div>
+      <div class="g_ribon_flagbox">
+        <div class="g_ribon g_ribon03"><img src="images/svg/ribbon02.svg" alt=""></div>
+        <div class="g_ribon g_ribon04"><img src="images/svg/ribbon02.svg" alt=""></div>
+        <div class="g_ribon g_ribon01"><img src="images/svg/ribbon.svg" alt=""></div>
+        <div class="g_ribon g_ribon02"><img src="images/svg/ribbon.svg" alt=""></div>
+      </div>
+
+
+      <!-- happy birthday -->
+      <div class="hapdy"><img src="images/svg/HBD02.svg" alt="富邦 Happy Birthdya To You."></div>
+
+      <!-- 蛋糕 -->
+      <div class="game_cake">
+        <!-- 不滅火 -->
+        <div id="fire02">
+          <canvas id="fire_canvas02" style="position: absolute; display: block;"></canvas>
+          <div id="fire_container02" style="pointer-events:none; overflow:hidden; display: block;">
+          </div>
+        </div>
+        <!-- 吹熄的火 -->
+        <div id="nofire">
+          <canvas id="nofire_canvas" style="position: absolute; display: block;"></canvas>
+          <div id="nofire_container" style="pointer-events:none; overflow:hidden; display: block;">
+          </div>
+        </div>
+        <!-- 對話泡泡 -->
+        <div class="talkBB"><img src="images/svg/talking.svg" alt=""></div>
+        <img src="images/svg/cake.svg" alt="">
+      </div>
+      
+      <!-- 吹氣男 -->
+      <div id="blowMan" style="background-color: transparent; width:630px; height:630px">
+        <canvas id="blowMan_canvas" width="630" height="630"
+          style="position: absolute; display: block; background-color:transparent;"></canvas>
+        <div id="blowMan_container"
+          style="pointer-events:none; overflow:hidden; width:630px; height:630px; position: absolute; left: 0px; top: 0px; display: block;">
+        </div>
+      </div>
+
+      <!-- 進度條 -->
+      <div class="toolbar">
+        <div class="toolDiv">
+          <div class="toolYellow"></div>
+        </div>
+        <img src="images/bar.png" alt="">
+        <a href="javascript:;" class="clickButton">
+          <img src="images/check.png" alt="">
+        </a>
+      </div>
+
+      <!-- go back -->
+      <div class="goback_btn"><img src="images/svg/back_b.svg" alt="回主畫面"></div>
+
+      <!-- game logo -->
+      <div class="game_logo"><img src="images/logo.png" alt="台北富邦銀行"></div>
+    </div>
+  </div>
+
+  <!-- 音樂檔 -->
+  <audio id="playGame" src="audio/playGame.wav" preload="auto" controls loop>
+    HTML5 audio not supported
+  </audio>
+
+
+  <script type="text/javascript" src="js_lib/skrollr.min.js"></script>
+  <script type="text/javascript" src="js_lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="js_lib/slick.min.js"></script>
+  <script type="text/javascript" src="js_lib/lottie.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    var closeEl = $('.close_mask, .closepp_btn, .anC:not(.immedi_anC), .ppBack')
+    closeEl.on('click', function () {
+      if($(this).hasClass('ppBack') && isMobile){
+        $('body').removeClass('locked')
+        $('.wrapper').css({
+        'position': '',
+        'width': '',
+        'height': '',
+        'left': '',
+        'top': ''
+      })
+        $body.scrollTop(LBT)
+      }
+      
+      $('.wrapper').removeClass('noScroll')
+      $(this).parents('.pop_mask').stop(true).fadeOut(150)
+
+    })
+
+    // gameCtr
+    var i = 0
+    var clickButton = $('.clickButton')
+    var toolYellow = $('.toolYellow')
+    var talkBB = $('.talkBB')
+    clickButton.on('click', function () {
+      talkBB.hide()
+      i++
+      if (i > 5) return false
+      toolYellow.css({
+        'width': i * 20 + '%'
+      })
+
+      if (i == 5) {
+        $(this).addClass('stop')
+        $('#fire02').hide()
+        $('#nofire').css({
+          'opacity': 1
+        })
+      } else {}
+
+      nowCut = i
+
+      // console.log(i)
+      if (nowCut == 0) {
+        setTimeout(function () {
+          createjs.Ticker.paused = 1
+          // createjs.Ticker.reset()
+        }, 1000 / 30)
+      } else if (nowCut == 5) {
+        $('.goback_btn').hide()
+        createjs.Ticker.paused = 0
+        setTimeout(function () {
+          $('#nofire').hide()
+        }, 1000 / 30 * 46)
+        setTimeout(function () {
+          createjs.Ticker.paused = 1
+          createjs.Ticker._inited = false;
+          createjs.Ticker.init();
+          createjs.Ticker.reset()
+          gameOver()
+
+        }, 1000 / 30 * 58)
+      } else if (nowCut < 5 && nowCut > 0) {
+        createjs.Ticker.paused = 0
+        setTimeout(function () {
+          createjs.Ticker.paused = 1
+        }, 1000 / 30*2)
+      }
+    })
+
+    function gameReset(){
+      createjs.Ticker.paused = 0
+      i = 0
+      playGame.currentTime = 0;
+      talkBB.show()
+      $('#fire02').show()
+      $('#nofire').show()
+      $('#nofire').css({'opacity': 0})
+      toolYellow.css({
+        'width': 0 + '%'
+      })
+      $('.blue_alertBox').removeClass('open')
+    }
+
+    var delayTIme = 1200
+    var fadeInTIme = 550
+    // 卡片 fn
+    function noDataFn() { //無會員資料
+      $('.noData').delay(delayTIme).stop(true).fadeIn(fadeInTIme)
+    }
+
+    function alreadyDidFn() { //已經抽過
+      $('.alreadyDid').delay(delayTIme).stop(true).fadeIn(fadeInTIme)
+    }
+
+    function immediFn() { //立即抽獎
+      $('.immedi').delay(delayTIme).stop(true).fadeIn(fadeInTIme)
+      $('.immedi').find('.blue_alertBox').addClass('open')
+
+    }
+
+    function noAwardFn() { //未中獎
+      $('.noAward').stop(true).fadeIn(350)
+      $('.noAward').find('.blue_alertBox').addClass('open')
+    }
+
+    function AwardFn() { //已中獎
+      $('.Award').stop(true).fadeIn(350)
+      $('.Award').find('.blue_alertBox').addClass('open')
+    }
+
+    // 遊戲結束 fn
+    function gameOver() {
+      $('.gameBox').delay(500).fadeOut(450)
+      document.getElementById("playGame").pause()
+      init_fire(0)
+
+      // 執行步驟
+      immediFn()
+
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+@media screen and (max-width: 768px) {
+
+  /** 商品區 *******************************/
+  .prod .tentbox{
+    width: 98%;
+    height: 100%;
+    padding: 0.4rem 4vw 0.6rem 4vw;
+    max-height: 7rem;
+  }
+  .ppBack{
+    width: 0.8rem;
+    top: auto;
+    right: calc(50% - 0.4rem);
+    /* bottom: 2.2vw; */
+    bottom: 0.15rem;
+  }
+  .tentDiv{
+    position: absolute;
+    top: 0.4rem;
+    left: 4vw;
+    width: calc(100% - 8vw);
+    height: calc(100% - 1rem);
+  }
+  .innerScroll{
+    padding-top: 4vw;
+    padding-bottom: 13.2vw;
+  }
+
+  .prodTlt{
+    background-image: url(../images/svg/ribbon04_m.svg);
+    background-position: top center;
+    background-size: 2.61rem;
+    padding-left: 0;
+    display: block;
+  }
+  .prod_icon{
+    width: 0.74rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0.14rem;
+  }
+  .prod_tttImg{
+    width: auto;
+    margin: auto;
+  }
+  .goodMoney .prod_tttImg{
+    max-width: 3rem;
+  }
+  .changeMoney .prod_tttImg{
+    max-width: 2.5rem;
+  }
+  .buyHouse .prod_tttImg{
+    max-width: 3rem;
+  }
+  .seaMoney .prod_tttImg{
+    max-width: 3rem;
+  }
+  .foriMoney .prod_tttImg{
+    max-width: 3.48rem;
+  }
+
+  /*--*/
+  .prod_secTlt{
+    font-size: 0.2rem;
+    margin-bottom: 1.8em;
+    padding-left: 0.8em;
+    text-align: left;
+    line-height: 1.3;
+  }
+  .prod_secTlt:before{
+    width: 5px!important;
+    height: 1.2em;
+    left: 0;
+    background-color: #0f90c9;
+    bottom: auto;
+    top: 0.08em;
+    border-radius: 5px;
+  }
+  .prod .date_box{
+    margin-top: 2em;
+  }
+  .prod .ddd{
+    width: calc(100% - 0.3em);
+    padding-left: 0.3em;
+    margin-top: 0.7em;
+  }
+  .then_tlt{
+    text-align: left;
+  }
+  .foriMoney .check_list{
+    font-size: 0.16rem;
+  }
+
+
+  /** 特約店區 *******************************/
+  .spStore .tentbox{
+    width: 98%;
+    height: 100%;
+    padding: 0.6rem 4vw 0.6rem 4vw;
+    max-height: 7rem;
+  }
+  .spStore .tentDiv{
+    position: absolute;
+    top: 0.6rem;
+    left: 4vw;
+    width: calc(100% - 8vw);
+    height: calc(100% - 1.2rem);
+  }
+  .spStore_icon{
+    width: 40%;
+    transform: rotate(20deg) translate(-25%,50%);
+  }
+  .spStore_logo{
+    left: 50%;
+    top: -0.45rem;
+    transform: translateX(-50%);
+  }
+  .sp05 .spStore_logo{
+    width: 0.7rem;
+    top: -0.5rem;
+  }
+  .sp08 .spStore_logo{
+    width: 0.7rem;
+    top: -0.5rem;
+    border-radius: 50%;
+  }
+  .sp09 .spStore_logo{
+    width: 0.75rem;
+    top: -0.55rem;
+  }
+  .sp10 .spStore_logo{
+    width: 0.9rem;
+    top: -0.5rem;
+  }
+  .sp11 .spStore_logo{
+    width: 0.9rem;
+    top: -0.5rem;
+  }
+  .spStore .prodTlt{
+    background-image: none;
+  }
+  .spStore_tttImg{
+    width: 2.13rem;
+    margin: auto;
+  }
+  .myMusic .spStore_tttImg{
+    width: 1.5rem;
+  }
+  .myVideo .spStore_tttImg{
+    width: 1.5rem;
+  }
+  .myBook .spStore_tttImg{
+    width: 1.35rem;
+  }
+  .sp05 .spStore_tttImg{
+    width: 1.21rem;
+  }
+  .sp06 .spStore_tttImg{
+    width: 1.07rem;
+  }
+  .sp07 .spStore_tttImg{
+    width: 1.07rem;
+  }
+  .sp08 .spStore_tttImg{
+    width: 1.35rem;
+  }
+  .sp09 .spStore_tttImg{
+    width: 2.2rem;
+  }
+  .sp10 .spStore_tttImg{
+    width: 2.2rem;
+  }
+  .sp11 .spStore_tttImg{
+    width: 2.9rem;
+  }
+  .spStore_secTlt{
+    font-size: 0.2rem;
+    padding-left: 0.8em;
+  }
+  .spStore_secTlt:before{
+    display: block;
+  }
+  .spStore .ddd{
+    width: calc(100% - 0.3em);
+    padding-left: 0.3em;
+    margin-top: 0.7em;
+  }
+
+  .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical{
+    right: -4vw;
+  }
+
+}
